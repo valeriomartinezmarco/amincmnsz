@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Medilab Bootstrap Template - Index</title>
+  <title>Amincmnsz - Principal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,7 +28,23 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  <style>
+    .modal-backdrop.show {
+      opacity: 0;
+    }
+    .modal-backdrop {
+      --bs-backdrop-zindex: 1050;
+      --bs-backdrop-bg: #000;
+      --bs-backdrop-opacity: 0.5;
+      position: inherit;
+      top: 0;
+      left: 0;
+      z-index: var(--bs-backdrop-zindex);
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--bs-backdrop-bg);
+    }
+  </style>
   <!-- =======================================================
   * Template Name: Medilab
   * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -42,121 +58,185 @@
 
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex justify-content-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
-      </div>
-      <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+    <div class="container d-flex justify-content-around">
+      <div class="d-none d-lg-flex social-links align-items-center"> <a href="mailto:contacto@amincmnsz.com.mx" target="_blank" class="twitter"><i class="bi bi-envelope-fill"></i></a> <a href="https://twitter.com/AMINNSZ" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/groups/aminnsz/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a> <a href="https://api.whatsapp.com/send?phone=525611232373" target="_blank" class="facebook"> <i class="bi bi-whatsapp"></i> 56 11 23 23 73 </a> </div>
+        <div class="contact-info d-flex align-items-center">
+          <?php
+        if (!$login) {
+          echo '
+          <i class="bi bi-door-open-fill"></i>
+          <a id="login" href="#">Iniciar Sesión</a>
+          <i class="bi bi-spellcheck"></i>
+          <a id ="btnRecover" href="#">Recuperar contraseña</a>';
+        } else {
+          if ($admin == 1) {
+            echo '<a style="margin-right: 10px; color: white;" href="Administrador/administrador.php" class="appointment-btn scrollto">Administrador</a>';
+          }
+          echo '<p class="saludo">Bienvenido: Dr/Dra. ' . $nombre ." ".$apaterno." ".$amaterno. '</p>';
+          echo '<i class="bi bi-door-open-fill"></i>
+                <a id="logout" href="/assets/vendor/admin/logout.php">Cerrar Sesi&oacute;n</a>';
+        }
+
+        ?>
+
+        </div>
       </div>
     </div>
   </div>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      <!-- <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1>
+     Uncomment below if you prefer to use an image logo -->
+      <!-- --><a href="index.php" class="logo me-auto"><img src="./assets/img/logoAminnsz.png" alt="" class="img-fluid"></a>
       <nav id="navbar" class="navbar order-last order-lg-0">
+
+
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+
+
+          <li class="dropdown"><a href="/AMINCMNSZ/ConsejoDirectivo.php" class="nav-link scrollto"><span>AMINCMNSZ</span> <i class="bi bi-chevron-right"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="/AMINCMNSZ/ConsejoDirectivo.php">Consejo Directivo</a></li>
+              <li><a href="/AMINCMNSZ/NuestroFundador.php">Nuestro Fundador</a></li>
+              <li><a href="/AMINCMNSZ/Estatutos.php">Estatutos</a></li>
+              <li><a href="/AMINCMNSZ/Membresia.php">Membresía</a></li>
+              <li><a href="/AMINCMNSZ/ActualizacionDatos.php">Actualización de Datos</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+          <li class="dropdown"><a href="ReunionAnual/ReunionAnual.php" class="nav-link scrollto"><span>Reunión Anual</span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+              <li><a href="ReunionAnual/ReunionAnual.php">Reunión anual</a></li>
+              <!-- <li><a href="ReunionAnual/ProgramaReunionAnual">Programa LXIII Reunión Anual AMINCMNSZ</a></li> -->
+              <!-- <li><a href="ReunionAnual/CartelesReunionAnual">Carteles Reunión Anual AMINCMNSZ</a></li> -->
+              <li><a href="ReunionAnual/ReunionesPrevias.php">Reuniones Previas</a></li>
+              <li><a href="ReunionAnual/ConvocatoriaTrabajosLibres.php">Convocatoria para la recepción de trabajos libres</a></li>
+              <li><a href="ReunionAnual/FormatoTrabajosLibres.php">Formato para trabajos libres</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="/AMIncmnSzTAD/GeneracionesAMINCMNSZ.php" class="nav-link scrollto"><span><strong>AMI</strong>ncmn<strong>S</strong>z<strong>TAD</strong></span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+            <li><a href="/AMIncmnSzTAD/GeneracionesAMINCMNSZ.php">Generaciones de la AMINCMNSZ</a></li>
+            <li><a href="/AMIncmnSzTAD/EspaciosAMINCMNSZ.php">Espacios de la AMINCMNSZ</a></li>
+            <li><a href="/AMIncmnSzTAD/RetoGeneraciones.php">Reto generaciones</a></li>
+            <li><a href="/AMIncmnSzTAD/TalentosAMINCMNSZ.php">Talentos AMINCMNSZ</a></li>
+            <li><a href="/AMIncmnSzTAD/MomentosAMINCMNSZ.php">Momentos AMINCMNSZ</a></li>
+            <!-- <li><a href="/AMIncmnSzTAD/cursos/cursos">Cursos</a></li> -->
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="/AMIncmnSzTAD/cursos/cursos.php">Cursos</a></li>
+        <li><a class="nav-link scrollto" href="/index.php#contact">Contacto</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i> </nav>
+    <!-- .navbar --> 
+    </nav>
 
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
-
-    </div>
-  </header><!-- End Header -->
+    <a href="/Directorio/directorio.php" class="appointment-btn scrollto selectedD">Directorio</a>
+          </div>
+  
+  <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
+  <!--
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Welcome to Medilab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      <h1>Sociedad de Médicos.</h1>
+      <h2>Del Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubiran.</h2>
+      <a href="#about" class="btn-get-started scrollto">Ingresar al Portal.</a>
     </div>
-  </section><!-- End Hero -->
-
+  </section>
+  --!-->
+  <!-- End Hero -->
+  
   <main id="main">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="400">
+        <center>
+        <img src="assets/img/slide/foto.jpeg" class="d-block w-40" alt="...">
+          </center>
+      </div>
+      <div class="carousel-item">
+        <center>
+        <img src="assets/img/slide/reunionAminnsz.png" class="d-block w-100" alt="...">
+        </center>
+        <div class="alert alert-info" role="alert">
+          <center>Proximo Congreso "San Luis Potosí"  <a href="#" class="alert-link">Más Información</a></center>
+      </div>
+        
+      </div>
+      <div class="carousel-item">
+        <center>
+        <img src="assets/img/slide/aminnsz.jpeg" class="d-block w-20" alt="..." width="20%" height="20%">
+        </center>
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </div>
+</div>
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
-
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="col-lg-8 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Medilab?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
+              <h3>Bienvenidos a AMINCMNSZ</h3>
+              <p>Estimados miembros de la AMINCMNSZ </p>
+              <p>Los momentos que estamos viviendo requieren más que nunca de nuestra unidad, como médicos, pero principalmente como amigos.  En muchos escenarios queda plasmado irrefutablemente el éxito que se obtiene al fomentar el trabajo en equipo, cuyo principal requisito indispensable es tener objetivos y actitudes compartidos.  </p>
+              <div class="text-center"> <a type="button" class="more-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Leer Más <i class="bx bx-chevron-right"></i> </a> </div>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="col-lg-4 d-flex align-items-stretch">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
+                <div class="col-xl-12 d-flex align-items-stretch">
+                  <div class="icon-box"> <img src="assets/img/logo_blanco.png" class="img-fluid" alt="" /> </div>
                 </div>
               </div>
-            </div><!-- End .content-->
+            </div>
+            <!-- End .content-->
           </div>
         </div>
-
       </div>
-    </section><!-- End Why Us Section -->
+    </section>
+    
+    <!-- End Why Us Section -->
+
+       <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="staticBackdropLabel">Bienvenidos a AMINCMNSZ</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Estimados miembros de la AMINCMNSZ</p>
+            <p>Los momentos que estamos viviendo requieren más que nunca de nuestra unidad, como médicos, pero principalmente como amigos. En muchos escenarios queda plasmado irrefutablemente el éxito que se obtiene al fomentar el trabajo en equipo, cuyo principal requisito indispensable es tener objetivos y actitudes compartidos. </p>
+            <p> Desde su origen, en la <strong>AMINCMSNZ</strong> tenemos la misión de fortalecer nuestro contacto cultural y científico, nuestra armonía, unidad y ética profesional, y nuestra relación con otras asociaciones afines.</p>
+            <p>Nuestra institución se ha consolidado como un modelo de referencia, el cual se extiende y refuerza con la excelente labor que muchos profesionales de la salud han mantenido en varios lugares del país y del extranjero. Todos los que nos formamos en el <strong>INCMNSZ</strong> somos y seremos siempre AMINCMNSZ.</p>
+            <p>Les extendemos una cordial invitación a participar activamente en las actividades de nuestra asociación. Sus valiosas aportaciones, ideas y participación son siempre bienvenidos.</p>
+            <p class="text-center">Atentamente <strong>Mesa Directiva AMINCMNSZ 2021</strong></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar bienvenida</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -205,7 +285,7 @@
             <div class="count-box">
               <i class="fas fa-user-md"></i>
               <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Doctors</p>
+              <p>Médicos</p>
             </div>
           </div>
 
@@ -213,7 +293,7 @@
             <div class="count-box">
               <i class="far fa-hospital"></i>
               <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Departments</p>
+              <p>Especialistas</p>
             </div>
           </div>
 
@@ -221,7 +301,7 @@
             <div class="count-box">
               <i class="fas fa-flask"></i>
               <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Research Labs</p>
+              <p>Subespecialistas</p>
             </div>
           </div>
 
@@ -229,7 +309,7 @@
             <div class="count-box">
               <i class="fas fa-award"></i>
               <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Awards</p>
+              <p>Alta Especialidad</p>
             </div>
           </div>
 
@@ -468,8 +548,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Doctors</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Consejo Directivo</h2>
+          <p>El Consejo Directivo del Periodo 2023-2026.</p>
         </div>
 
         <div class="row">
@@ -478,8 +558,8 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Medical Officer</span>
+                <h4>Dr. Sergio Hernández Jiménez</h4>
+                <span>Presidente</span>
                 <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -495,8 +575,8 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Anesthesiologist</span>
+                <h4>Dr. José Alberto Ávila Funes</h4>
+                <span>Vicepresidente</span>
                 <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -512,8 +592,8 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cardiology</span>
+                <h4>Dr. Francisco Rodríguez Covarrubias</h4>
+                <span>Secretario</span>
                 <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -529,8 +609,8 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Neurosurgeon</span>
+                <h4>Dra. Judith González Sánchez</h4>
+                <span>Pro-Secretaria</span>
                 <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -552,57 +632,31 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Preguntas Frecuentes.</h2>
+          <p>En esta sección encontrarás las preguntas mas comunes sobre nosotros.</p>
         </div>
 
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Como puedo ser socio? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                  En contrarás al final de esta páguina una formulario, donde podrás ingresar tus datos y nosotros nos pondremos en contacto contigo.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Donde puedo realizar mi pago? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  En el correo electrónico   pagos@amincmnsz.mx  envia tu ficha de pago, anotando tu nombre para identificar a quien corresponde el pago.
                 </p>
               </div>
             </li>
 
-            <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
-                </p>
-              </div>
-            </li>
-
+            
           </ul>
         </div>
 
@@ -945,5 +999,12 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+<script>
+        const myCarouselElement = document.querySelector('#carouselExampleControls')
 
+        const carousel = new bootstrap.Carousel(myCarouselElement, {
+           interval: 2000,
+           touch: false
+          })
+        </script>
 </html>
